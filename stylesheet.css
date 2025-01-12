@@ -1,0 +1,14 @@
+.display {
+    width: 50%;
+    background-color: lightgray;
+    font-size: 32px;
+}
+
+button {
+    font-size: 20px;
+}
+/* Helper styles - not intended to be used alone! */
+.center {
+    margin: auto;
+    text-align: center;
+}
