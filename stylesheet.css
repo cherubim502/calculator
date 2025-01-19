@@ -2,6 +2,7 @@
     width: 50%;
     background-color: lightgray;
     font-size: 32px;
+    border: 1px solid yellow;
 }
 
 button {

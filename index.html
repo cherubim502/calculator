@@ -12,7 +12,10 @@
         <h1>Calculator</h1>
     </div>
     <div id="body" style="display: flex; flex-direction: column; align-content: center; justify-content: center; align-items: center; border: 1px solid red;"> <!-- TODO move this style to stylesheet.css! -->
-        <div id="display" class="display">000.00</div>
+        <div id="output" style="display: flex; flex-direction: row;">
+            <div id="display" class="display">000.00</div>
+            <div id="operator" class="display"></div>
+        </div>
         <div id="input" style="border: 1px solid green; font-size: 20px;"> <!-- TODO Move to stylesheet.css! -->
             <button id="1" onclick="numberPressed('1')">1</button>
             <button id="2" onclick="numberPressed('2')">2</button>
