@@ -10,7 +10,7 @@ const Operator = {
 
 // Store the operator and operands selected by the user.
 // Since there's only two operands, no point in having an array or classes
-let operand1 = 0;
+let operand1 = 0
 let selected_operator = null; // must be type Operator above.
 let operand2 = 0
 let result = 0;
@@ -19,6 +19,25 @@ let result = 0;
 // Triggered on the user hitting the Enter key on the UI.
 function operate() {
     console.log("Beginning calculation");
+    updateOperator("=");
+    if (selected_operator === Operator.ADD ) {
+        result = operand1 + operand2;
+    }
+    else if (selected_operator ===  Operator.SUBTRACT ) {
+        result = operand1 - operand2;
+    }
+    else if (selected_operator === Operator.MULTIPLY ) {
+        result = operand1 * operand2;
+    }
+    else if (selected_operator === Operator.DIVIDE) {
+        result = operand1 / operand2;
+        // TODO prevent divide-by-zero
+    }
+    else {
+        // An unknown input has been given- throw an error.
+        alert("Unknown operator requested; \"" + selected_operator + "\"")
+    }
+    updateDisplay(result)
 }
 
 // A digit key has been pressed, so update accordingly.
@@ -42,18 +61,32 @@ function numberPressed(buttonName) {
 // Print which number button has been pressed.
 function operatorPressed(buttonName) {
     console.log(buttonName + " operator has been pressed");
+
+    // There's no check for if operand 1 has been filled in-
+    // assuming that if the user presses the operand button,
+    // they're using 0 as the first operand. Like a financial calculator.
+
+    if (result != null) {
+        operand1 = result; // Feed the result back into operand 1
+        operand2 = 0; // Reset operand 2
+        result = 0; // Reset result;
+    }
     
     if (buttonName === "plus") {
         selected_operator = Operator.ADD;
+        updateOperator("+")
     }
     else if (buttonName === "minus") {
         selected_operator = Operator.SUBTRACT;
+        updateOperator("-")
     }
     else if (buttonName === "multiply") {
         selected_operator = Operator.MULTIPLY;
+        updateOperator("X")
     }
     else if (buttonName === "divide") {
         selected_operator = Operator.DIVIDE;
+        updateOperator("/")
     }
     else {
         // An unknown input has been given- throw an error.
@@ -65,6 +98,9 @@ function operatorPressed(buttonName) {
 function clear() {
     console.log("Clearing")
     operand1 = 0;
+    selected_operator = null;
+    operand2 = 0;
+    result = 0;
 }
 
 // Update the selected operand with a specific digit
