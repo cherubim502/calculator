@@ -2,7 +2,15 @@
     width: 50%;
     background-color: lightgray;
     font-size: 32px;
-    border: 1px solid yellow;
+}
+
+.break {
+    height: 2px;
+    background-color: darkgrey;
+}
+
+.body {
+    display: flex; flex-direction: column; align-content: center; justify-content: center; align-items: center;
 }
 
 button {

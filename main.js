@@ -1,5 +1,4 @@
 // Enumeration to track the available operations.
-// The numbers don't mean anything- they're just to keep the Javascript engine happy.
 const Operator = {
     NONE: "none",
     ADD: "plus",

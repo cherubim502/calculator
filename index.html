@@ -11,27 +11,37 @@
     <div id="header" class="center">
         <h1>Calculator</h1>
     </div>
-    <div id="body" style="display: flex; flex-direction: column; align-content: center; justify-content: center; align-items: center; border: 1px solid red;"> <!-- TODO move this style to stylesheet.css! -->
+    <div id="body" class="body">
         <div id="display" class="display">000.00</div>
+        <div class="break"></div>
         <div id="operator" class="display">***</div>
-        <div id="input" style="border: 1px solid green; font-size: 20px;"> <!-- TODO Move to stylesheet.css! -->
-            <button id="1" onclick="numberPressed('1')">1</button>
-            <button id="2" onclick="numberPressed('2')">2</button>
-            <button id="3" onclick="numberPressed('3')">3</button>
+        <div id="input">
+            <div class="row">
+                <button id="clear" onclick="clearAll()">CLEAR</button>
+                <button id="divide" onclick="operatorPressed('divide')">/</button>
+            </div>
+            <div class="row">
+                <button id="1" onclick="numberPressed('1')">1</button>
+                <button id="2" onclick="numberPressed('2')">2</button>
+                <button id="3" onclick="numberPressed('3')">3</button>
+                <button id="plus" onclick="operatorPressed('plus')">+</button>
+            </div>
+            <div class="row">
             <button id="4" onclick="numberPressed('4')">4</button>
             <button id="5" onclick="numberPressed('5')">5</button>
             <button id="6" onclick="numberPressed('6')">6</button>
+            <button id="minus" onclick="operatorPressed('minus')">-</button>
+            </div>
+            <div class="row">
             <button id="7" onclick="numberPressed('7')">7</button>
             <button id="8" onclick="numberPressed('8')">8</button>
             <button id="9" onclick="numberPressed('9')">9</button>
-            <button id="0" onclick="numberPressed('0')">0</button>
-            <button id="plus" onclick="operatorPressed('plus')">+</button>
-            <button id="minus" onclick="operatorPressed('minus')">-</button>
             <button id="multiply" onclick="operatorPressed('multiply')">x</button>
-            <button id="divide" onclick="operatorPressed('divide')">/</button>
-            <!-- button id="decimal" onclick="numberPressed('.')">.</button -->
+            </div>
+            <div class="row">
+            <button id="0" onclick="numberPressed('0')">0</button>
             <button id="calculate" onclick="operate()">=</button>
-            <button id="clear" onclick="clearAll()">CLEAR</button>
+            </div>
         </div>
     </div>
 </body>
