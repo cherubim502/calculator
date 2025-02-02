@@ -21,6 +21,7 @@ function operate() {
     console.log("Beginning calculation");
     updateOperator("=");
     if (selected_operator === Operator.ADD ) {
+        console.log("Adding " + operand1 + " and " + operand2)
         result = operand1 + operand2;
     }
     else if (selected_operator ===  Operator.SUBTRACT ) {
@@ -30,14 +31,20 @@ function operate() {
         result = operand1 * operand2;
     }
     else if (selected_operator === Operator.DIVIDE) {
-        result = operand1 / operand2;
-        // TODO prevent divide-by-zero
+        if (operand2 == 0) {
+            result = "ERR: DIV BY 0"
+        } else {
+            result = operand1 / operand2;
+        }
     }
     else {
         // An unknown input has been given- throw an error.
         alert("Unknown operator requested; \"" + selected_operator + "\"")
     }
     updateDisplay(result)
+    operand1 = 0
+    operand2 = 0
+    selected_operator = null
 }
 
 // A digit key has been pressed, so update accordingly.
@@ -61,16 +68,6 @@ function numberPressed(buttonName) {
 // Print which number button has been pressed.
 function operatorPressed(buttonName) {
     console.log(buttonName + " operator has been pressed");
-
-    // There's no check for if operand 1 has been filled in-
-    // assuming that if the user presses the operand button,
-    // they're using 0 as the first operand. Like a financial calculator.
-
-    if (result != null) {
-        operand1 = result; // Feed the result back into operand 1
-        operand2 = 0; // Reset operand 2
-        result = 0; // Reset result;
-    }
     
     if (buttonName === "plus") {
         selected_operator = Operator.ADD;
@@ -95,12 +92,14 @@ function operatorPressed(buttonName) {
 }
 
 // Reset everything to zero.
-function clear() {
+function clearAll() {
     console.log("Clearing")
     operand1 = 0;
     selected_operator = null;
     operand2 = 0;
     result = 0;
+    updateDisplay("0")
+    updateOperator("***")
 }
 
 // Update the selected operand with a specific digit
