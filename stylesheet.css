@@ -17,6 +17,7 @@ button {
     font-size: 30px;
     padding: 10px;
 }
+
 /* Helper styles - not intended to be used alone! */
 .center {
     margin: auto;
